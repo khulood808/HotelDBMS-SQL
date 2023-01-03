@@ -13,11 +13,11 @@ public class Employees {
 		String sqlDB = "CREATE TABLE Employees"
 				+ "(id INTEGER, "
 				+ " employee_type_id INTEGER FOREIGN KEY REFERENCES Employee_Type(id),"
-				+ " room_id INTEGER FOREIGN KEY REFERENCES Hotelmain(id), " 
+				+ " room_id INTEGER FOREIGN KEY REFERENCES Hotels(id), " 
 				+ " created_date date not NULL, " 
 				+ " updated_date date , " 
-				+ " is_Active Boolean not NULL)"
-				+ " PRIMARY KEY ( id ))";   
+				+ " is_Active VARCHAR(20) not NULL,"
+				+ " PRIMARY KEY ( id ))"; 
 
 		Connection conn = null;
 		try {

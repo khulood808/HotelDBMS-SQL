@@ -13,15 +13,15 @@ public class Guests {
 		String sqlDB = "CREATE TABLE Guests"
 				+ "(id INTEGER,"
 				+ " guest_name VARCHAR(20) not NULL, "
-				+ " guest_phone dVARCHAR(20) not NULL,"
+				+ " guest_phone VARCHAR(20) not NULL,"
 				+ " guest_accompanying_members INTEGER not NULL, " 
 				+ " guest_payment_amount INTEGER not NULL,"
 				+ "room_id INTEGER FOREIGN KEY REFERENCES Rooms(id) , "
-				+ " hotel_id INTEGER FOREIGN KEY REFERENCES Hotelmain(id) , "
+				+ " hotel_id INTEGER FOREIGN KEY REFERENCES Hotels(id) , "
 				+ " created_date VARCHAR(20) not NULL,"
 				+ " updated_date date, " 
-				+ " is_Active Boolean not NULL,"
-				+ " PRIMARY KEY ( id ))";	
+				+ " is_Active VARCHAR(20) not NULL,"
+				+ " PRIMARY KEY ( id ))";
 
 		Connection conn = null;
 		try {

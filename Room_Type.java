@@ -15,7 +15,7 @@ public class Room_Type {
 				+ " room_type_name VARCHAR(20) not NULL, "
 				+ " created_date date, " 
 				+ " updated_date date, " 
-				+ " is_Active Boolean not NULL"
+				+ " is_Active VARCHAR(20) not NULL,"
 				+ " PRIMARY KEY ( id ))";	
 		Connection conn = null;
 		try {

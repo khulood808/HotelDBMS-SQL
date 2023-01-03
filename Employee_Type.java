@@ -15,7 +15,7 @@ public class Employee_Type {
 				+ " employee_type_name VARCHAR(20) not NULL, "
 				+ " created_date VARCHAR(20) not NULL, " 
 				+ " updated_date date , " 
-				+ " is_Active Boolean not NULL)"
+				+ " is_Active VARCHAR(20) not NULL,"
 				+ " PRIMARY KEY ( id ))";             
 
 		Connection conn = null;

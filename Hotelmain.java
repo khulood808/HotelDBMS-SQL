@@ -16,7 +16,7 @@ public class Hotelmain {
 				+ " hotel_location VARCHAR(20), " 
 				+ " created_date date not NULL, " 
 				+ " updated_date date , " 
-				+ " is_Active VARCHAR(8) not NULL,"
+				+ " is_Active VARCHAR(20) not NULL,"
 				+ " PRIMARY KEY ( id ))";
 
 		Connection conn = null;
