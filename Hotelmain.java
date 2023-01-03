@@ -63,8 +63,10 @@ public class Hotelmain {
 		Date created_date = new Date(System.currentTimeMillis());
 		Date updated_date = new Date(System.currentTimeMillis());
 		String is_Active="true";
+		
 		Random rn = new Random();
         Integer randomNumber = (Integer) rn.nextInt(100);
+        
         Connection conn = null;
 		try {
 			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
@@ -73,7 +75,7 @@ public class Hotelmain {
 			 for (int i = 1; i <= 100; i++) {
 				 String ins = "Insert into Hotels values(" + i + randomNumber + ",'" +
 						  hotel_name + "','" + hotel_location + "','" + created_date + "','" +
-						 updated_date + "'," +1 +")";
+						 updated_date + "'," +1 +"')";
 						System.out.println(ins); 
 						Statement st = conn.createStatement();
 						int m = st.executeUpdate(ins);
@@ -83,10 +85,59 @@ public class Hotelmain {
 		}
 		catch (Exception ex) {
 			System.err.println(ex);
-		}
+		}	
 	}
 	
+	public static void inpustHotel() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter ID");
+        int id = scanner.nextInt();
+        
+        System.out.println("Enter Hotel Name");
+        String name = scanner.next();
 
+        System.out.println("Enter Hotel Location");
+        String loc = scanner.next();
+        
+        System.out.println("Enter Created Date");
+        String crDate = scanner.next();
+
+        System.out.println("Enter Update Date");
+        String upDate = scanner.next();
+
+        System.out.println("Enter If Active");
+        String act = scanner.next();
+
+        String insHotel = "insert into Hotels values('" + id+ "'," + name + ",'" + loc + "','" +crDate +"','" + upDate +"'," + act +"')";
+
+        Connection con = null;
+
+        try {
+
+            Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+
+            DriverManager.registerDriver(driver);
+
+            con = DriverManager.getConnection(url, user,pass);
+
+            Statement st = con.createStatement();
+
+            int m = st.executeUpdate(insHotel);
+            if (m >=  1)
+                System.out.println(
+                        "inserted successfully : " + insHotel);
+            else
+                System.out.println("insertion failed");
+            con.close();
+        }
+
+        catch (Exception ex) {
+            System.err.println(ex);
+        }
+    }
+		
+		
+	
 	public static void main(String[] args) {
 		
 		createHotelsTable();
@@ -96,7 +147,8 @@ public class Hotelmain {
 		Employee_Type.createEmployee_TypeTable();
 		Employees.createEmployeesTable();
 		menue();
-		inpustUser();		
-		
+		inpustUser();	
+		inpustHotel()
+;		
 }
 }
