@@ -88,26 +88,22 @@ public class Hotelmain {
 			System.err.println(ex);
 		}	
 	}
-	public static void getId() {
+	public static void getById() {
 		String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
 		String user = "sa";
 		String pass = "root";
-	    
 	    
         Connection con = null;
         try {
 
             Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
-
             DriverManager.registerDriver(driver);
-
             con = DriverManager.getConnection(url, user,pass);
-
             Statement st = con.createStatement();
             Scanner scanner = new Scanner(System.in);
             int inId = scanner.nextInt();
             int coun = 1;
-            String inpId = "select* from Hotels where id='" + inId +"'";
+            String inpId = "SELECT * FROM Hotels WHERE id='" + inId +"'";
             ResultSet res = st.executeQuery(inpId);
             while (res.next() && coun<= inId) {
             	int id = res.getInt("id");
@@ -125,9 +121,39 @@ public class Hotelmain {
             System.err.println(ex);
         }
 	}
+	public static void updateById(){
+		String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
+		String user = "sa";
+		String pass = "root";
+        Connection con = null;
+        try {
+
+            Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+            DriverManager.registerDriver(driver);
+            con = DriverManager.getConnection(url, user,pass);
+            Statement st = con.createStatement();
+            
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter Hotel Id to Update data");
+            int upId = scanner.nextInt();
+            
+            System.out.println("Set up a New Hotel Name");
+            String hotelName = scanner.next();
+            
+            System.out.println("Set up a New Hotel Location");
+            String hotelLoc = scanner.next();
+            
+            String sql = "UPDATE Hotels SET hotel_name='" + hotelName +"',hotel_location='" + hotelLoc  + "' WHERE id ='"+ upId +"'";
+            int resl = st.executeUpdate(sql);
+        }
+        catch (Exception ex) {
+            System.err.println(ex);
+        }
+	}
 	
 	public static void inputHotel() {
 		 String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
+		 
 		 String user = "sa";
 		 String pass = "root";
 		
@@ -157,11 +183,8 @@ public class Hotelmain {
         try {
 
             Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
-
             DriverManager.registerDriver(driver);
-
             con = DriverManager.getConnection(url, user,pass);
-
             Statement st = con.createStatement();
 
             int m = st.executeUpdate(insHotel);
@@ -190,6 +213,6 @@ public class Hotelmain {
 		menue();
 		inpustUser();	
 		inputHotel();	
-		getId();
+		getById();
 		}
 }
