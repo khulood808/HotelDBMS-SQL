@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.Driver;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Random;
 import java.util.Scanner;
@@ -87,8 +88,49 @@ public class Hotelmain {
 			System.err.println(ex);
 		}	
 	}
+	public static void getId() {
+		String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
+		String user = "sa";
+		String pass = "root";
+	    
+	    
+        Connection con = null;
+        try {
+
+            Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+
+            DriverManager.registerDriver(driver);
+
+            con = DriverManager.getConnection(url, user,pass);
+
+            Statement st = con.createStatement();
+            Scanner scanner = new Scanner(System.in);
+            int inId = scanner.nextInt();
+            int coun = 1;
+            String inpId = "select* from Hotels where id='" + inId +"'";
+            ResultSet res = st.executeQuery(inpId);
+            while (res.next() && coun<= inId) {
+            	int id = res.getInt("id");
+            
+            String hotel_name = res.getString("hotel_name");
+    		String hotel_location = res.getString("hotel_location");
+    		Date created_date = res.getDate("created_date");
+    		Date updated_date = res.getDate("updated_date");
+    		String is_Active= res.getString("is_Active");
+    		System.out.println(id + " "+ hotel_name +" " + hotel_location + " " +created_date + " "+ updated_date + " "+ is_Active);
+    		coun++;
+    		}
+        }
+        catch (Exception ex) {
+            System.err.println(ex);
+        }
+	}
 	
-	public static void inpustHotel() {
+	public static void inputHotel() {
+		 String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
+		 String user = "sa";
+		 String pass = "root";
+		
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter ID");
         int id = scanner.nextInt();
@@ -105,7 +147,7 @@ public class Hotelmain {
         System.out.println("Enter Update Date");
         String upDate = scanner.next();
 
-        System.out.println("Enter If Active");
+        System.out.println("Enter If Active Or In Active");
         String act = scanner.next();
 
         String insHotel = "insert into Hotels values('" + id+ "'," + name + ",'" + loc + "','" +crDate +"','" + upDate +"'," + act +"')";
@@ -124,8 +166,7 @@ public class Hotelmain {
 
             int m = st.executeUpdate(insHotel);
             if (m >=  1)
-                System.out.println(
-                        "inserted successfully : " + insHotel);
+                System.out.println("inserted successfully : " + insHotel);
             else
                 System.out.println("insertion failed");
             con.close();
@@ -148,7 +189,7 @@ public class Hotelmain {
 		Employees.createEmployeesTable();
 		menue();
 		inpustUser();	
-		inpustHotel()
-;		
-}
+		inputHotel();	
+		getId();
+		}
 }
