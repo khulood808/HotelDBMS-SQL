@@ -150,6 +150,54 @@ public class Hotelmain {
             System.err.println(ex);
         }
 	}
+	public static void deleteById() {
+		String url = "jdbc:mysql://localhost:3306/HotelDBMS";
+		String user = "root";
+		String pass = "root";
+		Scanner scanner = new Scanner(System.in);
+		Connection conn = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			DriverManager.registerDriver(driver);
+			
+			conn = DriverManager.getConnection(url, user, pass);
+			
+			Statement st = conn.createStatement();
+			int delid=scanner.nextInt();
+			String sql = "select * from hotel where id='" + delid + "'";
+			
+			int rs = st.executeUpdate(sql);
+		     
+		     
+		      conn.close();
+		  
+	} catch (Exception ex) {
+		System.err.println(ex);
+	}
+}
+	public static void makeIsActiveFalseById() {
+		String url = "jdbc:mysql://localhost:3306/HotelDBMS";
+		String user = "root";
+		String pass = "root";
+		Scanner scanner = new Scanner(System.in);
+		Connection conn = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			DriverManager.registerDriver(driver);
+			conn = DriverManager.getConnection(url, user, pass);
+			Statement st = conn.createStatement();
+			
+            System.out.println("Enter Hotel Id to Get the Activated Hotels");
+            int actHotel = scanner.nextInt();
+           
+			String sql = "UPDATE Hotels SET is_Active=false WHERE id<=" + actHotel;
+			int rs = st.executeUpdate(sql);
+		      conn.close();
+		  
+	} catch (Exception ex) {
+		System.err.println(ex);
+	}
+}
 	
 	public static void inputHotel() {
 		 String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
@@ -199,9 +247,7 @@ public class Hotelmain {
             System.err.println(ex);
         }
     }
-		
-		
-	
+
 	public static void main(String[] args) {
 		
 		createHotelsTable();
@@ -214,5 +260,8 @@ public class Hotelmain {
 		inpustUser();	
 		inputHotel();	
 		getById();
+		deleteById();
+		makeIsActiveFalseById();
+		
 		}
 }
