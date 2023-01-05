@@ -6,6 +6,10 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 public class Guests {
+	static String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
+	static String user = "sa";
+	static String pass = "root";
+	
 	public static boolean createGuestsTable() {
 		String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
 		String user = "sa";

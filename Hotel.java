@@ -14,7 +14,6 @@ public class Hotel {
 	static String user = "sa";
 	static String pass = "root";
 	
-	
 	public static boolean createHotelsTable() {
 		String sqlDB = "CREATE TABLE Hotels"
 				+ "(id INTEGER, "
