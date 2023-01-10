@@ -46,7 +46,7 @@ public class Hotel {
 	}
 
 
-public static void inpustUser(int h) {
+	public static void inpustUser(int h) {
 	Scanner sc = new Scanner(System.in);
 
 	String hotel_name = "Grand Hayat";
@@ -78,7 +78,7 @@ public static void inpustUser(int h) {
 		System.err.println(ex);
 	}
 }
-public static void getById() {
+	public static void getById() {
 	String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
 	String user = "sa";
 	String pass = "root";
@@ -111,7 +111,7 @@ public static void getById() {
         System.err.println(ex);
     }
 }
-public static void Printhotels(int pri) {
+	public static void Printhotels(int pri) {
 	String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
 	String user = "sa";
 	String pass = "root";
@@ -143,7 +143,7 @@ public static void Printhotels(int pri) {
 		System.err.println(ex);
 	}
 }
-public static void updateById(){
+	public static void updateById(){
 	String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
 	String user = "sa";
 	String pass = "root";
@@ -172,7 +172,7 @@ public static void updateById(){
         System.err.println(ex);
     }
 }
-public static void makeIsActiveFalseById() {
+	public static void makeIsActiveFalseById() {
 	String url = "jdbc:mysql://localhost:3306/HotelDBMS";
 	String user = "root";
 	String pass = "root";
@@ -195,7 +195,7 @@ public static void makeIsActiveFalseById() {
 	System.err.println(ex);
 }
 }	
-public static void deleteById() {
+	public static void deleteById() {
 		String url = "jdbc:mysql://localhost:3306/HotelDBMS";
 		String user = "root";
 		String pass = "root";
@@ -209,7 +209,7 @@ public static void deleteById() {
 			
 			Statement st = conn.createStatement();
 			int delid=scanner.nextInt();
-			String sql = "select * from hotel where id='" + delid + "'";
+			String sql = "SELECT * FROM hotel WHERE id='" + delid + "'";
 			
 			int rs = st.executeUpdate(sql);
 		      conn.close();
@@ -218,7 +218,7 @@ public static void deleteById() {
 		System.err.println(ex);
 	}
 }
-public static void inputHotel() {
+	public static void inputHotel() {
 		 String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
 		 
 		 String user = "sa";
