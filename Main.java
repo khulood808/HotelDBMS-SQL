@@ -27,21 +27,57 @@ public class Main {
 			
 			switch (selOption) {
 			case 1:
-				System.out.println("Enter Numbers Of Hotels You Want To Enter: ");
-				int number = scanner.nextInt();
-				Hotel.inpustUser(number);
+				//System.out.println("Enter Numbers Of Hotels You Want To Enter: ");
+				//int numH = scanner.nextInt();
+				//Hotel.inpustUser(numH);
+				
+				//System.out.println("Enter Numbers Of Room_Type You Want To Enter: ");
+				//int numR_T = scanner.nextInt();
+				//Room_Type.inpustUser(numR_T);
+				
+				System.out.println("Enter Numbers Of Rooms You Want To Enter: ");
+				int numR = scanner.nextInt();
+				Rooms.inpustUser(numR);
+				
+				//System.out.println("Enter Numbers Of Guests You Want To Enter: ");
+				//int numG = scanner.nextInt();
+				//Guests.inpustUser(numG);
+				
+				//System.out.println("Enter Numbers Of Employee_Type You Want To Enter: ");
+				//int numE_T = scanner.nextInt();
+				//Employee_Type.inpustUser(numE_T);
+				
+				//System.out.println("Enter Numbers Of Employees You Want To Enter: ");
+				//int numE = scanner.nextInt();
+				//Employees.inpustUser(numE);
+				
 				break;
 				
 			case 2:
-				Hotel.inpustUser(1);
+				//Hotel.inpustUser(1);
+				Room_Type.inpustUser(1);
+				//Rooms.inpustUser(1);
+				//Guests.inpustUser(1);
+				//Employee_Type.inpustUser(1);
+				//Employees.inpustUser(1);
 				break;
 				
 			case 3:
-				Hotel.Printhotels(10);
+				//Hotel.Printhotels(10);
+				Room_Type.Printroom_Type(10);
+				//Rooms.PrintRooms(10);
+				//Guests.PrintGuests(10);
+				//Employee_Type.PrintEmployee_Type(10);
+				//Employees.PrintEmployees(10);
 				break;
 				
 			case 4:
-				Hotel.makeIsActiveFalseById();
+				//Hotel.makeIsActiveFalseById();
+				Room_Type.makeIsActiveFalseById();
+				//Rooms.makeIsActiveFalseById();
+				//Guests.makeIsActiveFalseById();
+				//Employee_Type.makeIsActiveFalseById();
+				//Employees.makeIsActiveFalseById();
 				break;
 				
 			case 5:

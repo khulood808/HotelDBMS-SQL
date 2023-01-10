@@ -65,9 +65,8 @@ public static void inpustUser(int h) {
 		Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
 		DriverManager.registerDriver(driver);
 		conn = DriverManager.getConnection(url, user, pass);
-		 for (int i = 1; i <= h ;i++) {
-			 String ins = "Insert into Rooms values(" + i + room_type_id + ",'" + "','" + hotel_id + "','" +
-					 created_date + "','" + updated_date + "','" + is_Active + "','" + +1 +"')";
+		 for (int i = 0; i <= h ;i++) {
+			 String ins = "Insert into Rooms values(" + i +"," +room_type_id + "," + hotel_id + ",'" +created_date + "','" + updated_date + "','" + is_Active +"')";
 					System.out.println(ins); 
 					Statement st = conn.createStatement();
 					int m = st.executeUpdate(ins);

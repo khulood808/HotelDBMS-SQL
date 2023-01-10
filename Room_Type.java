@@ -19,7 +19,7 @@ public class Room_Type {
 		String user = "sa";
 		String pass = "root";
 		String sqlDB = "CREATE TABLE Room_Type"
-				+ "(id INTEGER, "
+				+ "(id INTEGER PRIMARY KEY IDENTITY(1,1), "
 				+ " room_type_name VARCHAR(20) not NULL, "
 				+ " created_date date, " 
 				+ " updated_date date, " 
@@ -62,9 +62,9 @@ public class Room_Type {
 			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
 			DriverManager.registerDriver(driver);
 			conn = DriverManager.getConnection(url, user, pass);
-			 for (int i = 1; i <= h ;i++) {
-				 String ins = "Insert into Room_Type values(" + i + room_type_name + ",'" +
-						 created_date + "','" + updated_date + "','" + is_Active + "','" + +1 +"')";
+			 for (int i = 0; i <= h ;i++) {
+				 String ins = "Insert into Room_Type values(" + i + ",'" + room_type_name + "','" +
+						 created_date + "','" + updated_date + "','" + is_Active + "')";
 						System.out.println(ins); 
 						Statement st = conn.createStatement();
 						int m = st.executeUpdate(ins);
