@@ -78,7 +78,6 @@ public static void inpustUser(int h) {
 		System.err.println(ex);
 	}
 }
-
 public static void getById() {
 	String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
 	String user = "sa";
@@ -195,10 +194,8 @@ public static void makeIsActiveFalseById() {
 } catch (Exception ex) {
 	System.err.println(ex);
 }
-}
-
-	
-	public static void deleteById() {
+}	
+public static void deleteById() {
 		String url = "jdbc:mysql://localhost:3306/HotelDBMS";
 		String user = "root";
 		String pass = "root";
@@ -221,7 +218,7 @@ public static void makeIsActiveFalseById() {
 		System.err.println(ex);
 	}
 }
-	public static void inputHotel() {
+public static void inputHotel() {
 		 String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
 		 
 		 String user = "sa";

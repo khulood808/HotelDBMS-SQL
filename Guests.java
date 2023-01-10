@@ -259,7 +259,7 @@ public class Guests {
       System.out.println("Enter If Active Or In Active");
       String act = scanner.next();
 
-      String insHotel = "insert into Hotels values('" + id+ "'," + name + ",'" + loc + "','" +crDate +"','" + upDate +"'," + act +"')";
+      String insGuests = "insert into Guests values('" + id+ "'," + name + ",'" + loc + "','" +crDate +"','" + upDate +"'," + act +"')";
 
       Connection con = null;
 
@@ -270,9 +270,9 @@ public class Guests {
           con = DriverManager.getConnection(url, user,pass);
           Statement st = con.createStatement();
 
-          int m = st.executeUpdate(insHotel);
+          int m = st.executeUpdate(insGuests);
           if (m >=  1)
-              System.out.println("inserted successfully : " + insHotel);
+              System.out.println("inserted successfully : " + insGuests);
           else
               System.out.println("insertion failed");
           con.close();
